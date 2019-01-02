@@ -7,3 +7,6 @@ show_downloads: false
 google_analytics:
 
 github: [metadata]
+
+grin:
+  repository_url: https://github.com/grin-tech/grin
