@@ -1,4 +1,3 @@
-# grin.github.io
+# Hello, World!
 
-Soon...
-
+I've just published my first GitHub Pages site!
