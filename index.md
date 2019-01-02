@@ -1,4 +1,8 @@
-# Soon...
+---
+layout: default
+---
+
+Soon.
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
