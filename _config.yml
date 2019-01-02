@@ -5,5 +5,5 @@ description: GRIN is compiler back-end for lazy and strict functional languages 
 
 show_downloads: false
 google_analytics:
-github:
-  repository_url: https://github.com/grin-tech/grin
+
+github: [metadata]
