@@ -1,7 +1,7 @@
 theme: jekyll-theme-cayman
 
 title: GRIN Compiler
-description: GRIN is compiler back-end for lazy and strict functional languages with whole program optimization support.
+description: whole program optimizer for lazy and strict functional languages
 
 show_downloads: false
 google_analytics:

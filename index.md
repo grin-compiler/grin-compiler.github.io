@@ -2,124 +2,63 @@
 layout: grin-default
 ---
 
-Soon...
+- utilize recent pointer analysis and control flow analisis results, useful for:
+  - generate much smaller binaries (better dead code elimination)
+  - compile faster programs (better strictness analysis)
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+The project aim is to provide easy to use compiler backend with convenient intermediate language and framework.
 
-[Link to another page](another-page).
+# Status
 
-There should be whitespace between paragraphs.
+- update tech to use the most recent research results
+- update GRIN IR
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+# Haskell
 
-# [](#header-1)Header 1
+**[GHC/GRIN]()** is a Haskel frontend with the standard tooling support: Cabal and Stack.
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+Compiling from STG linking the whole program into a single STG file.
 
-## [](#header-2)Header 2
+Whole program optimization and interprocedural dead code elimination.
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+Generates small binaries.
 
-### [](#header-3)Header 3
+No RTS yet. We need to build a new RTS from scratch supportin all the GHC primops.
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
+**Roadmap:**
+- WASM support
+- GC implementation
+- basic GHC primops (i.e. *arithmetic, arrays, refs*)
+- full GHC primops
 
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
+# Idris
 
-#### [](#header-4)Header 4
+Working backend, with multiple sample programs.
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
+**Roadmap:**
 
-##### [](#header-5)Header 5
+# Agda
 
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
+Initial stub exists.
 
-###### [](#header-6)Header 6
+# Reserach papers
 
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
+- Souffle
+- P4F
+- HRC / Haskell Gap
+- MLton
 
-### There's a horizontal rule below this.
+# Research directions
 
-* * *
+- ASAP Memory Management
+- SPMD
+- HRC vectorisation
+- LLVM type system
+- use Gibbon transformations to obtain packed data representation
 
-### Here is an unordered list:
+# Related project
 
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![](https://assets-cdn.github.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
+- JHC
+- LHC
+- HRC
+- MLton
