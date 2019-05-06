@@ -8,12 +8,21 @@ layout: grin-default
 
 The project aim is to provide easy to use compiler backend with convenient intermediate language and framework.
 
+HIGHLIGHT: whole program analysis and optimization
+
+BENEFIT:
+- analyse reald world programs (GHC/GRIN ; STG/Lambda export)
+
 # Status
 
 - update tech to use the most recent research results
 - update GRIN IR
 
 # Haskell
+
+GHC does incremental (per module) compilation. That was the best design decision back then.
+
+The goal of the GRIN project is to explore the design space of whole program optimization an unleash the performance and tooling benefits of it.
 
 **[GHC/GRIN]()** is a Haskel frontend with the standard tooling support: Cabal and Stack.
 
@@ -27,8 +36,9 @@ No RTS yet. We need to build a new RTS from scratch supportin all the GHC primop
 
 **Roadmap:**
 - WASM support
-- GC implementation
 - basic GHC primops (i.e. *arithmetic, arrays, refs*)
+- tooling (profiler, debugger)
+- GC implementation
 - full GHC primops
 
 # Idris
