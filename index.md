@@ -2,6 +2,14 @@
 layout: grin-default
 ---
 
+**Page Status: work in progress**
+
+GRIN is a compiler backend and an intermediate language.
+The goal is to bring the benefits of whole program analysis and optimization for functional languages especially Haskell.  
+The main benefits are:
+  - **smaller executables** *(more accurate dead code elimination)*
+  - **faster programs** *(better strictness analysis and unboxing)*
+
 - utilize recent pointer analysis and control flow analisis results, useful for:
   - generate much smaller binaries (better dead code elimination)
   - compile faster programs (better strictness analysis)
@@ -11,7 +19,7 @@ The project aim is to provide easy to use compiler backend with convenient inter
 HIGHLIGHT: whole program analysis and optimization
 
 BENEFIT:
-- analyse reald world programs (GHC/GRIN ; STG/Lambda export)
+- analyse real world programs (GHC/GRIN ; STG/Lambda export)
 
 # Status
 
@@ -57,6 +65,8 @@ Initial stub exists.
 - P4F
 - HRC / Haskell Gap
 - MLton
+
+# Tooling research
 
 # Research directions
 
