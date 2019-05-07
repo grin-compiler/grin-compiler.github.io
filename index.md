@@ -23,8 +23,12 @@ BENEFIT:
 
 # Status
 
-- update tech to use the most recent research results
-- update GRIN IR
+Paper: <a href="http://nbviewer.jupyter.org/github/Anabra/grin/blob/fd9de6d3b9c7ec5f4aa7d6be41285359a73494e3/papers/stcs-2019/article/tex/main.pdf">
+A modern look at GRIN, an optimizing functional language back end
+</a>
+
+- update tech to use the most recent research results: *Souffle/datalog, P4F, Steensgaard based points-to analysis*
+- update GRIN IR: *introduce basic blocks*
 
 # Haskell
 
