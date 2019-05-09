@@ -23,6 +23,11 @@ BENEFIT:
 
 # Status
 
+Urban Boquist's PhD thesis on
+<a href="http://nbviewer.jupyter.org/github/grin-tech/grin/blob/master/papers/boquist.pdf">
+Code Optimisation Techniques for Lazy Functional Languages
+</a>.
+
 Paper: <a href="http://nbviewer.jupyter.org/github/Anabra/grin/blob/fd9de6d3b9c7ec5f4aa7d6be41285359a73494e3/papers/stcs-2019/article/tex/main.pdf">
 A modern look at GRIN, an optimizing functional language back end
 </a>
@@ -30,7 +35,12 @@ A modern look at GRIN, an optimizing functional language back end
 - update tech to use the most recent research results: *Souffle/datalog, P4F, Steensgaard based points-to analysis*
 - update GRIN IR: *introduce basic blocks*
 
-# Haskell
+# Language Frontends
+
+## Haskell: GHC/GRIN
+
+It is crutial to use GHC as a Haskel frontend to support the widest range of libraries. GHC/GRIN is 
+GHC is patched to emit STG representation. The STG modules are linked together and processed by the GRIN compiler.
 
 GHC does incremental (per module) compilation. That was the best design decision back then.
 
@@ -44,8 +54,9 @@ Whole program optimization and interprocedural dead code elimination.
 
 Generates small binaries.
 
-No RTS yet. We need to build a new RTS from scratch supportin all the GHC primops.
-
+No RTS yet. We need to build a new RTS from scratch supporting every GHC primop.
+TODO: why we need a new RTS.
+  
 **Roadmap:**
 - WASM support
 - basic GHC primops (i.e. *arithmetic, arrays, refs*)
@@ -53,22 +64,23 @@ No RTS yet. We need to build a new RTS from scratch supportin all the GHC primop
 - GC implementation
 - full GHC primops
 
-# Idris
+## Idris/GRIN
 
 Working backend, with multiple sample programs.
 
 **Roadmap:**
 
-# Agda
+## Agda/GRIN
 
 Initial stub exists.
 
 # Reserach papers
 
-- Souffle
-- P4F
-- HRC / Haskell Gap
-- MLton
+- **[Souffle](https://souffle-lang.github.io/):** *efficient datalog compiler for performant program analyses*
+- **[P4F](https://arxiv.org/pdf/1507.03137.pdf):** *advanced control flow analysis for whole program defunctionalization*
+- **[HRC](http://www.leafpetersen.com/leaf/publications/hs2013/hrc-paper.pdf) / [Measuring the Haskell Gap](http://www.leafpetersen.com/leaf/publications/ifl2013/haskell-gap.pdf):**
+      *research compiler that showed the potential of whole program optimization for modern Haskell*
+- **[MLton](http://mlton.org/):** *leading industrial strength whole program compiler for SML*
 
 # Tooling research
 
