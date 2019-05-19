@@ -4,9 +4,8 @@ layout: grin-default
 
 # Overview
 
+GRIN (Graph Reduction Intermediate Notation) is an intermediate representation and a compiler framework.
 GRIN could significantly improve the tooling, performance and size of functional programs and could enable functional technologies to target new platforms like WebAssembly.
-GRIN (Graph Reduction Intermediate Notation) is an intermediate representation and a compiler framework
-to bring the benefits of whole program optimization to wide range of functional programming languages.
 
 
 Functional languages are compiled in three stages: frontend, functional optimizer, low level / machine code / imperative level optimimization.
@@ -24,7 +23,8 @@ Currently the following frontends are under development:
 - **Agda**  
   Code stub ....
 
-GRIN could significantly improve the tooling, performance and size of functional programs and could enable functional technologies to target new platforms like WebAssembly.
+~~GRIN could significantly improve the tooling, performance and size of functional programs and could enable functional technologies to target new platforms like WebAssembly.~~  
+GRIN aims to bring the benefits of whole program optimization to wide range of functional programming languages.
 
 *Support the project on [Patreon](https://www.patreon.com/csaba_hruska).*
 
@@ -43,6 +43,7 @@ With the help of Language Server Protocol it would be possible to visualize all 
 ### Smaller Executables
 
 Whole program analysis helps the compiler to remove dead code and dead data fields more efficiently.  
+For example it can effectively remove the unused type class instances.  
 In result the executables are much smaller.  
 It also cuts down the external dependencies in the program binary.
 
@@ -68,7 +69,7 @@ why?
 
 # Benefits For Researchers
 
-*to help research and experimentation*
+*help research and experimentation*
 
 ### Analysis Framework
 
@@ -84,38 +85,38 @@ The GRIN Project aims to utilize the most recent results of compiler research.
 
 *Whole program compilers*
 
-- **[A modern look at GRIN, an optimizing functional language back end](http://nbviewer.jupyter.org/github/Anabra/grin/blob/fd9de6d3b9c7ec5f4aa7d6be41285359a73494e3/papers/stcs-2019/article/tex/main.pdf)**  
+- [A modern look at GRIN, an optimizing functional language back end](http://nbviewer.jupyter.org/github/Anabra/grin/blob/fd9de6d3b9c7ec5f4aa7d6be41285359a73494e3/papers/stcs-2019/article/tex/main.pdf)  
   Overview of GRIN related projects and other whole program compilers.  
   i.e. *Boquist GRIN, UHC, JHC, LHC, HRC, MLton*
 
-- **[Intel Labs Haskell Research Compiler](http://www.leafpetersen.com/leaf/publications/hs2013/hrc-paper.pdf)** / **[Measuring the Haskell Gap](http://www.leafpetersen.com/leaf/publications/ifl2013/haskell-gap.pdf)**  
+- [Intel Labs Haskell Research Compiler](http://www.leafpetersen.com/leaf/publications/hs2013/hrc-paper.pdf) / [Measuring the Haskell Gap](http://www.leafpetersen.com/leaf/publications/ifl2013/haskell-gap.pdf)  
   research compiler that showed the potential of whole program optimization for modern Haskell  
   HRC, FLRC, SIMD Vectorisation
 
-- **[MLton](http://mlton.org/)**  
+- [MLton](http://mlton.org/)  
   leading industrial strength whole program compiler for SML
 
 *Program analysis*
 
-- **[Souffle datalog compiler](https://souffle-lang.github.io/)**  
+- [Souffle datalog compiler](https://souffle-lang.github.io/)  
   Souffle synthesizes a native parallel C++ program from a logic specification.  
   It is used to implement *points-to, control flow*  and other analyses efficiently.
 
-- **[P4F: Pushdown Control-Flow Analysis for Free](https://arxiv.org/pdf/1507.03137.pdf)**  
+- [P4F: Pushdown Control-Flow Analysis for Free](https://arxiv.org/pdf/1507.03137.pdf)  
   advanced control flow analysis for whole program defunctionalization
 
 *Vectorisation*
 
-- **[ISPC: Intel SPMD Program Compiler](https://ispc.github.io/)**  
+- [ISPC: Intel SPMD Program Compiler](https://ispc.github.io/)  
   high-performance SIMD programming on the CPU
 
-- **[FLRC: Automatic SIMD Vectorization for Haskell](http://www.leafpetersen.com/leaf/publications/icfp2013/vectorization-haskell.pdf)**
+- [FLRC: Automatic SIMD Vectorization for Haskell](http://www.leafpetersen.com/leaf/publications/icfp2013/vectorization-haskell.pdf)
 
 *Memory management*
 
-- **[ASAP Memory Management](https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-908.pdf)**
+- [ASAP Memory Management](https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-908.pdf)
 
-- **[Gibbon](https://github.com/iu-parfunc/gibbon)** / **[Compiling Tree Transforms to Operate on Packed Representations](http://drops.dagstuhl.de/opus/volltexte/2017/7273/pdf/LIPIcs-ECOOP-2017-26.pdf)**  
+- [Gibbon](https://github.com/iu-parfunc/gibbon) / [Compiling Tree Transforms to Operate on Packed Representations](http://drops.dagstuhl.de/opus/volltexte/2017/7273/pdf/LIPIcs-ECOOP-2017-26.pdf)  
   
 
 
