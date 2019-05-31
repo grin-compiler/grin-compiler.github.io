@@ -4,75 +4,76 @@ layout: grin-default
 
 # Overview
 
-GRIN (Graph Reduction Intermediate Notation) is an intermediate representation and a compiler framework.
+GRIN is short for *Graph Reduction Intermediate Notation*, and it is an intermediate representation and a compiler framework.
 GRIN could significantly improve the tooling, performance and size of functional programs and could enable functional technologies to target new platforms like WebAssembly.
 
 
-Functional languages are compiled in three stages: frontend, functional optimizer, low level / machine code / imperative level optimimization.
+Functional languages are compiled in three stages:
+1. Language frontend
+2. High level optimizer *(functional)*
+3. Low level optimizer *(imperative)*
+
 While [LLVM](http://llvm.org/) handles the last step perfectly, GRIN as a functional optimizer can capture the original language semantics and can perform transformations that are infeasible at LLVM level.
 
 
 <img src="GRIN Pipeline.svg" width="50%" >
 
-Currently the following frontends are under development:
+Currently the following language frontends are under development:
 
 - **Haskell**  
-  GHC ....
+  The Haskell language evolves with the Glasgow Haskell Compiler. GHC development is usually focused on language features and high level optimization while the machine code generator gets less attention.
+  [GHC/GRIN](https://github.com/grin-compiler/ghc-grin) is a combination of GHC's Haskell language frontend and the GRIN optimizer.
+  It is work in progress, check its [current status](https://github.com/grin-compiler/ghc-grin#status).
 - **Idris**  
-  Working ....
+  Adding GRIN optimizer to Idris compiler pipeline will make programs faster and smaller.
+  [Idris/GRIN](https://github.com/grin-compiler/idris-grin) can compile many programs but the runtime is [work in progress](https://github.com/grin-compiler/idris-grin#status).
 - **Agda**  
-  Code stub ....
+  Plugging GRIN optimizer after Agda frontend is on our roadmap but currenly [Agda/GRIN](https://github.com/grin-compiler/agda-grin) is only an initial code stub.
 
-~~GRIN could significantly improve the tooling, performance and size of functional programs and could enable functional technologies to target new platforms like WebAssembly.~~  
 GRIN aims to bring the benefits of whole program optimization to wide range of functional programming languages.
 
 *Support the project on [Patreon](https://www.patreon.com/csaba_hruska).*
 
 # Benefits For Programmers
 
-*improving the industrial presence of Haskell*
+*GRIN helps to improve the industrial presence of Haskell.*
 
 ### Tooling
 
-visual runtime debugger and profiler  
-show runtime memory structures, debug lazyness  
-highlight optimization effects on source code in the code editor  
-*i.e. dead code/data, linear usage, laziness, strictness, tail call, unboxing, stack or heap allocation*  
-With the help of Language Server Protocol it would be possible to visualize all of theese cool features.
+Good tooling is essential for industrial software development. Whole program compilation makes it easy to observe the program both in runtime and compile time.
+This makes it easier to build good visual debugger and profiler tools. With such runtime tooling it would be possible to *show memory structures, debug laziness and visualize unevaluated expressions.*  
+Having access to the whole program could improve the code editor experience also. It would be possible to highlight optimization effects on source code,
+*i.e. dead code/data, linear variable usage, laziness, strictness, tail call, unboxing, stack/heap allocation.*  
+It seems feasible to implement these cool features using Language Server Protocol and GRIN.
 
 ### Smaller Executables
 
-Whole program analysis helps the compiler to remove dead code and dead data fields more efficiently.  
-For example it can effectively remove the unused type class instances.  
-In result the executables are much smaller.  
-It also cuts down the external dependencies in the program binary.
+Whole program analysis helps the compiler to remove dead code and dead data fields more effectively.
+E.g. it can remove the unused type class instances. This results much smaller executables.
+It also cuts down the number of referenced external libraries and symbols in the program binary which make programs more portable.
 
 ### Better Performance
 
-Whole program optimization removes lots of redundant computation  
-*i.e. unnecessary laziness and redundant memory operations*.  
-These simplifications often allows other optimizations to apply.
+Whole program optimization can remove lots of redundant computation,
+*i.e. unnecessary laziness and redundant memory operations*.
+These program simplifications often allows other optimizations to apply.
+GRIN represets memory operations and laziness explicitly. This allows agressive memory layout optimizations, *i.e. unboxing, turning heap values to stack/register values.*
+GRIN also eliminates indirect function calls which enables LLVM to perform more optimizations.
 
 
 ### New Platforms
 
-functional technologies in resource constrained environments:  
-
-*WebAssembly*  
-*Mobile*  
-*Gaming Consoles*  
-*Embedded Systems*  
-
-why?  
-
+GRIN uses LLVM for machine code generation. LLVM provides roboust tooling and support for all mainstream platforms.
+With this design choice the main platforms can be easily supported, *i.e. x64, ARM, WebAssembly* covering desktop, mobile and web.
 
 
 # Benefits For Researchers
 
-*help research and experimentation*
+*GRIN gives framework for research and experimentation.*
 
 ### Analysis Framework
 
+In case of GHC/GRIN... give some context  
 *The whole Haskell program compiled to a single STG then to a GRIN file.  
 Good for program static and runtime analysis.  
 All GHC primitive operations will be supported by an interpreter and by the native code generator.  
@@ -135,9 +136,13 @@ Please ask if you have any questions. (i.e. *code, design, research, support, et
 
 # FAQ
 
-**What is the difference between GHC and GRIN?**
+**What is the difference between GHC and GRIN?**  
+answer...
 
-**Why is GHC not good enough for you?**
+**Why is GHC not good enough for you?**  
+answer...
 
-**Can you reuse the GHC runtime for GHC/GRIN?**
+
+**Can you reuse the GHC runtime for GHC/GRIN?**  
+answer...
 
