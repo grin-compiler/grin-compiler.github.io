@@ -4,7 +4,7 @@ layout: grin-default
 
 # Overview
 
-GRIN is short for *Graph Reduction Intermediate Notation*, and it is an intermediate representation and a compiler framework.
+GRIN is a compiler framework and an intermediate representation. It is short for *Graph Reduction Intermediate Notation*.
 GRIN could significantly improve the tooling, performance and size of functional programs and could enable functional technologies to target new platforms like WebAssembly.
 
 
@@ -69,56 +69,63 @@ With this design choice the main platforms can be easily supported, *i.e. x64, A
 
 # Benefits For Researchers
 
-*GRIN gives framework for research and experimentation.*
+*GRIN gives framework for functional language experimentation.*
 
 ### Analysis Framework
 
-In case of GHC/GRIN... give some context  
-*The whole Haskell program compiled to a single STG then to a GRIN file.  
-Good for program static and runtime analysis.  
-All GHC primitive operations will be supported by an interpreter and by the native code generator.  
-Easy to write interpreters for experiments.  
-This framework makes it easy to do experiments on real world haskell programs.*
+Whole program compilation makes easy to observe and analyse programs.
+I.e. researchers can use GHC/GRIN to experiment with real world functional programs.
+GHC/GRIN compiler pipeline can serialize either the STG level and GRIN level intermediate representation (IR) for the whole program.
+With this framework it is easily to convert large Haskell programs to a research IR.
+We also plan to support all GHC primitive operations in the GRIN interpreter and GRIN native code generator.
 
 ### Related Work
 
-The GRIN Project aims to utilize the most recent results of compiler research.
+The GRIN Project aims to utilize the most recent results of compiler research, especially pointer analysis and whole program optimization.
 
 *Whole program compilers*
 
 - [A modern look at GRIN, an optimizing functional language back end](http://nbviewer.jupyter.org/github/Anabra/grin/blob/fd9de6d3b9c7ec5f4aa7d6be41285359a73494e3/papers/stcs-2019/article/tex/main.pdf)  
-  Overview of GRIN related projects and other whole program compilers.  
+  Our recent paper gives an overview of GRIN related projects and other whole program compilers.  
   i.e. *Boquist GRIN, UHC, JHC, LHC, HRC, MLton*
 
 - [Intel Labs Haskell Research Compiler](http://www.leafpetersen.com/leaf/publications/hs2013/hrc-paper.pdf) / [Measuring the Haskell Gap](http://www.leafpetersen.com/leaf/publications/ifl2013/haskell-gap.pdf)  
-  research compiler that showed the potential of whole program optimization for modern Haskell  
-  HRC, FLRC, SIMD Vectorisation
+  HRC is a research compiler that showed the performance effect of whole program optimization on Haskell. 
 
 - [MLton](http://mlton.org/)  
-  leading industrial strength whole program compiler for SML
+  MLton is the leading industrial strength whole program compiler for SML. It showcased that whole program compilation is feasible with low compile times.
 
 *Program analysis*
 
 - [Souffle datalog compiler](https://souffle-lang.github.io/)  
-  Souffle synthesizes a native parallel C++ program from a logic specification.  
+  Souffle synthesizes a native parallel C++ program from a logic specification.
   It is used to implement *points-to, control flow*  and other analyses efficiently.
 
 - [P4F: Pushdown Control-Flow Analysis for Free](https://arxiv.org/pdf/1507.03137.pdf)  
-  advanced control flow analysis for whole program defunctionalization
+  P4F is an advanced control flow analysis. It can boost the optimizer efficiency with providing sophisticated control flow information.
 
 *Vectorisation*
 
 - [ISPC: Intel SPMD Program Compiler](https://ispc.github.io/)  
-  high-performance SIMD programming on the CPU
+  Simple Program Multiple Data ([SPMD](https://en.wikipedia.org/wiki/SPMD)) is the programming model used by the GPUs.
+  ISPC implements the SPMD model on CPU SIMD vector instructions like SSE and AVX.
+  It proves that interprocedural data flow vectorisation can be much more performant than loop vectorisation.
 
-- [FLRC: Automatic SIMD Vectorization for Haskell](http://www.leafpetersen.com/leaf/publications/icfp2013/vectorization-haskell.pdf)
+
+- [FLRC: Automatic SIMD Vectorization for Haskell](http://www.leafpetersen.com/leaf/publications/icfp2013/vectorization-haskell.pdf)  
+  Intel Labs Haskell Research compiler utilized a SIMD vectorisation optimization that was specially designed for pure functional languages.
 
 *Memory management*
 
-- [ASAP Memory Management](https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-908.pdf)
+- [ASAP Memory Management](https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-908.pdf)  
+  ASAP (*As Static As Possible*) describes a compile time automatic memory management system using whole program analysis.
+  It essentially generates specialized garbage collector for each compiled program.
+  With ASAP it seems possible to run Haskell programs without run time garbage collector.
 
 - [Gibbon](https://github.com/iu-parfunc/gibbon) / [Compiling Tree Transforms to Operate on Packed Representations](http://drops.dagstuhl.de/opus/volltexte/2017/7273/pdf/LIPIcs-ECOOP-2017-26.pdf)  
-  
+  Gibbon is a research compiler that experiments with packed memory data representation.
+  It compiles functional programs to work with pointerless data representation which reduces cache misses and improves runtime performance.
+  This techique essentially turns data (de)serialization into raw memory copy.
 
 
 # Support
@@ -129,7 +136,8 @@ Please support the project on [Patreon](https://www.patreon.com/csaba_hruska).
 
 [![Gitter chat](https://badges.gitter.im/grin-tech/grin.png)](https://gitter.im/Grin-Development/Lobby)
 
-Please ask if you have any questions. (i.e. *code, design, research, support, etc.*)
+Please ask if you have any questions.  
+(i.e. *code, design, research, support, etc.*)
 
 **Email:** *csaba.hruska@gmail.com*
 
@@ -139,9 +147,8 @@ Please ask if you have any questions. (i.e. *code, design, research, support, et
 **What is the difference between GHC and GRIN?**  
 answer...
 
-**Why is GHC not good enough for you?**  
+**Why don't you improve GHC instead of GRIN?**  
 answer...
-
 
 **Can you reuse the GHC runtime for GHC/GRIN?**  
 answer...

@@ -2,8 +2,6 @@
 layout: grin-default
 ---
 
-[index2](index2)
-
 **Page Status: work in progress**
 
 GRIN is a compiler backend and an intermediate language.
