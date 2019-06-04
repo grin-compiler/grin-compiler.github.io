@@ -25,12 +25,12 @@ Currently the following language frontends are under development:
   [GHC/GRIN](https://github.com/grin-compiler/ghc-grin) is a combination of GHC's Haskell language frontend and the GRIN optimizer.
   It is work in progress, check its [current status](https://github.com/grin-compiler/ghc-grin#status).
 - **Idris**  
-  Adding GRIN optimizer to Idris compiler pipeline will make programs faster and smaller.
+  Adding GRIN optimizer to the Idris compiler pipeline will make programs faster and smaller.
   [Idris/GRIN](https://github.com/grin-compiler/idris-grin) can compile many programs but the runtime is [work in progress](https://github.com/grin-compiler/idris-grin#status).
 - **Agda**  
-  Plugging GRIN optimizer after Agda frontend is on our roadmap but currenly [Agda/GRIN](https://github.com/grin-compiler/agda-grin) is only an initial code stub.
+  Plugging the GRIN optimizer after the Agda frontend is on our roadmap but currenly [Agda/GRIN](https://github.com/grin-compiler/agda-grin) is only an initial code stub.
 
-GRIN aims to bring the benefits of whole program optimization to wide range of functional programming languages.
+GRIN aims to bring the benefits of whole program optimization to a wide range of functional programming languages.
 
 *Support the project on [Patreon](https://www.patreon.com/csaba_hruska).*
 
@@ -40,8 +40,10 @@ GRIN aims to bring the benefits of whole program optimization to wide range of f
 
 ### Tooling
 
-Good tooling is essential for industrial software development. Whole program compilation makes it easy to observe the program both in runtime and compile time.
-This makes it easier to build good visual debugger and profiler tools. With such runtime tooling it would be possible to *show memory structures, debug laziness and visualize unevaluated expressions.*  
+Good tooling is essential for industrial software development.
+In order to get anywhere near feature parity with the tools of mainstream programming languages, we need to inspect the whole program at the same time.
+This can help with all stages of development: immediate feedback while typing, visual debugging and profiling.
+With such runtime tooling it would be possible to *show memory structures, debug laziness and visualize unevaluated expressions.*  
 Having access to the whole program could improve the code editor experience also. It would be possible to highlight optimization effects on source code,
 *i.e. dead code/data, linear variable usage, laziness, strictness, tail call, unboxing, stack/heap allocation.*  
 It seems feasible to implement these cool features using Language Server Protocol and GRIN.
@@ -50,33 +52,33 @@ It seems feasible to implement these cool features using Language Server Protoco
 
 Whole program analysis helps the compiler to remove dead code and dead data fields more effectively.
 E.g. it can remove the unused type class instances. This results much smaller executables.
-It also cuts down the number of referenced external libraries and symbols in the program binary which make programs more portable.
+It also cuts down the number of referenced external libraries and symbols in the program binary.
 
 ### Better Performance
 
 Whole program optimization can remove lots of redundant computation,
 *i.e. unnecessary laziness and redundant memory operations*.
-These program simplifications often allows other optimizations to apply.
-GRIN represets memory operations and laziness explicitly. This allows agressive memory layout optimizations, *i.e. unboxing, turning heap values to stack/register values.*
+These program simplifications often make other optimizations possible.
+GRIN represents memory operations and laziness explicitly. This allows aggressive memory layout optimizations, *i.e. unboxing, turning heap values to stack/register values.*
 GRIN also eliminates indirect function calls which enables LLVM to perform more optimizations.
 
 
 ### New Platforms
 
-GRIN uses LLVM for machine code generation. LLVM provides roboust tooling and support for all mainstream platforms.
+GRIN uses LLVM for machine code generation. LLVM provides robust tooling and support for all mainstream platforms.
 With this design choice the main platforms can be easily supported, *i.e. x64, ARM, WebAssembly* covering desktop, mobile and web.
 
 
 # Benefits For Researchers
 
-*GRIN gives framework for functional language experimentation.*
+*GRIN provides a framework for functional language experimentation.*
 
 ### Analysis Framework
 
-Whole program compilation makes easy to observe and analyse programs.
-I.e. researchers can use GHC/GRIN to experiment with real world functional programs.
-GHC/GRIN compiler pipeline can serialize either the STG level and GRIN level intermediate representation (IR) for the whole program.
-With this framework it is easily to convert large Haskell programs to a research IR.
+Whole program compilation makes it easy to observe and analyse programs.
+I.e. researchers can use GHC/GRIN to experiment with real-world functional programs.
+The GHC/GRIN compiler pipeline can serialize both the STG level and the GRIN level intermediate representation (IR) for the whole program.
+With this framework it is easy to convert large Haskell programs to a research IR.
 We also plan to support all GHC primitive operations in the GRIN interpreter and GRIN native code generator.
 
 ### Related Work
@@ -107,7 +109,7 @@ The GRIN Project aims to utilize the most recent results of compiler research, e
 *Vectorisation*
 
 - [ISPC: Intel SPMD Program Compiler](https://ispc.github.io/)  
-  Simple Program Multiple Data ([SPMD](https://en.wikipedia.org/wiki/SPMD)) is the programming model used by the GPUs.
+  Single Program Multiple Data ([SPMD](https://en.wikipedia.org/wiki/SPMD)) is the programming model used by the GPUs.
   ISPC implements the SPMD model on CPU SIMD vector instructions like SSE and AVX.
   It proves that interprocedural data flow vectorisation can be much more performant than loop vectorisation.
 
@@ -118,14 +120,14 @@ The GRIN Project aims to utilize the most recent results of compiler research, e
 *Memory management*
 
 - [ASAP Memory Management](https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-908.pdf)  
-  ASAP (*As Static As Possible*) describes a compile time automatic memory management system using whole program analysis.
-  It essentially generates specialized garbage collector for each compiled program.
-  With ASAP it seems possible to run Haskell programs without run time garbage collector.
+  ASAP (*As Static As Possible*) describes a compile-time automatic memory management system using whole program analysis.
+  It essentially generates a specialized garbage collector for each compiled program.
+  With ASAP it seems possible to run Haskell programs without a run-time garbage collector.
 
 - [Gibbon](https://github.com/iu-parfunc/gibbon) / [Compiling Tree Transforms to Operate on Packed Representations](http://drops.dagstuhl.de/opus/volltexte/2017/7273/pdf/LIPIcs-ECOOP-2017-26.pdf)  
   Gibbon is a research compiler that experiments with packed memory data representation.
   It compiles functional programs to work with pointerless data representation which reduces cache misses and improves runtime performance.
-  This techique essentially turns data (de)serialization into raw memory copy.
+  This technique essentially turns data (de)serialization into raw memory copy.
 
 
 # Support
@@ -145,11 +147,15 @@ Please ask if you have any questions.
 # FAQ
 
 **What is the difference between GHC and GRIN?**  
-answer...
+GHC is an incremental compiler, therefore it cannot perform whole-program optimization,
+i.e. optimization across compilation units (with some exceptions at the highest level, e.g. rewrite rules).
+GRIN is a whole-program optimizer, which goes all the way down to the level of primitive memory access operations.
 
 **Why don't you improve GHC instead of GRIN?**  
-answer...
+Whole-program optimization is a fundamentally different design decision that cannot be easily retrofitted into GHC proper.
+Instead, we try to reuse as many parts as possible, e.g. the GHC frontend.
 
 **Can you reuse the GHC runtime for GHC/GRIN?**  
-answer...
+No, because the GHC runtime is built for the STG memory model.
+In contrast, there’s no uniform memory representation in GRIN.
 
