@@ -4,7 +4,8 @@ layout: grin-default
 
 # Overview
 
-GRIN is a compiler framework and an intermediate representation. It is short for *Graph Reduction Intermediate Notation*.
+GRIN is a compiler framework and an intermediate representation.
+It is short for *Graph Reduction Intermediate Notation*.
 GRIN could significantly improve the tooling, performance and size of functional programs and could enable functional technologies to target new platforms like WebAssembly.
 
 
