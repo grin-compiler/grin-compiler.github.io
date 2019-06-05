@@ -8,7 +8,6 @@ GRIN is a compiler framework and an intermediate representation.
 It is short for *Graph Reduction Intermediate Notation*.
 GRIN could significantly improve the tooling, performance and size of functional programs and could enable functional technologies to target new platforms like WebAssembly.
 
-
 Functional languages are compiled in three stages:
 1. Language frontend
 2. High level optimizer *(functional)*
@@ -16,7 +15,6 @@ Functional languages are compiled in three stages:
 
 While [LLVM](http://llvm.org/) handles the last step perfectly,
 [GRIN](https://github.com/grin-compiler/grin) as a functional optimizer can capture the original language semantics and can perform transformations that are infeasible at LLVM level.
-
 
 <img src="GRIN Pipeline.svg" width="50%" >
 
@@ -31,7 +29,7 @@ Currently the following language frontends are under development:
   Adding GRIN optimizer to the Idris compiler pipeline will make programs faster and smaller.
   [Idris/GRIN](https://github.com/grin-compiler/idris-grin) can compile many programs but the runtime is [work in progress](https://github.com/grin-compiler/idris-grin#status).
 - **Agda**  
-  Plugging the GRIN optimizer after the Agda frontend is on our roadmap but currenly [Agda/GRIN](https://github.com/grin-compiler/agda-grin) is only an initial code stub.
+  Plugging the GRIN optimizer after the Agda frontend is on our roadmap but currently [Agda/GRIN](https://github.com/grin-compiler/agda-grin) is only an initial code stub.
 
 GRIN aims to bring the benefits of whole program optimization to a wide range of functional programming languages.
 
@@ -66,13 +64,11 @@ GRIN represents memory operations and laziness explicitly.
 This allows aggressive memory layout optimizations, *i.e. unboxing, turning heap values to stack/register values.*
 GRIN also eliminates indirect function calls which enables LLVM to perform more optimizations.
 
-
 ### New Platforms
 
 GRIN uses LLVM for machine code generation.
 LLVM provides robust tooling and support for all mainstream platforms.
 With this design choice the main platforms can be easily supported, *i.e. x64, ARM, WebAssembly* covering desktop, mobile and web.
-
 
 # Benefits For Researchers
 
@@ -97,7 +93,7 @@ The GRIN Project aims to utilize the most recent results of compiler research, e
   i.e. *Boquist GRIN, UHC, JHC, LHC, HRC, MLton*
 
 - [Intel Labs Haskell Research Compiler](http://www.leafpetersen.com/leaf/publications/hs2013/hrc-paper.pdf) / [Measuring the Haskell Gap](http://www.leafpetersen.com/leaf/publications/ifl2013/haskell-gap.pdf)  
-  HRC is a research compiler that showed the performance effect of whole program optimization on Haskell. 
+  HRC is a research compiler that showed the performance effect of whole program optimization on Haskell.
 
 - [MLton](http://mlton.org/)  
   MLton is the leading industrial strength whole program compiler for SML.
@@ -107,7 +103,7 @@ The GRIN Project aims to utilize the most recent results of compiler research, e
 
 - [Souffle datalog compiler](https://souffle-lang.github.io/)  
   Souffle synthesizes a native parallel C++ program from a logic specification.
-  It is used to implement *points-to, control flow*  and other analyses efficiently.
+  It is used to implement *points-to, control flow* and other analyses efficiently.
 
 - [P4F: Pushdown Control-Flow Analysis for Free](https://arxiv.org/pdf/1507.03137.pdf)  
   P4F is an advanced control flow analysis.
@@ -136,7 +132,6 @@ The GRIN Project aims to utilize the most recent results of compiler research, e
   It compiles functional programs to work with pointerless data representation which reduces cache misses and improves runtime performance.
   This technique essentially turns data (de)serialization into raw memory copy.
 
-
 # Support
 
 Please support the project on [Patreon](https://www.patreon.com/csaba_hruska).
@@ -149,7 +144,6 @@ Please ask if you have any questions.
 (i.e. *code, design, research, support, etc.*)
 
 **Email:** *csaba.hruska@gmail.com*
-
 
 # FAQ
 
