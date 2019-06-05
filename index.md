@@ -45,23 +45,23 @@ Good tooling is essential for industrial software development.
 In order to get anywhere near feature parity with the tools of mainstream programming languages, we need to inspect the whole program at the same time.
 This can help with all stages of development: immediate feedback while typing, visual debugging and profiling.
 With such runtime tooling it would be possible to *show memory structures, debug laziness and visualize unevaluated expressions.*  
-Having access to the whole program could improve the code editor experience also.
-It would be possible to highlight optimization effects on source code, *i.e. dead code/data, linear variable usage, laziness, strictness, tail call, unboxing, stack/heap allocation.*  
+Having access to the whole program could improve the code editor experience too.
+It would be possible to highlight optimization effects on source code, *e.g. dead code/data, linear variable usage, laziness, strictness, tail call, unboxing, stack/heap allocation.*  
 It seems feasible to implement these cool features using Language Server Protocol and GRIN.
 
 ### Smaller Executables
 
 Whole program analysis helps the compiler to remove dead code and dead data fields more effectively.
-E.g. it can remove the unused type class instances.
-This results much smaller executables.
+For example it can remove the unused type class instances.
+This results in much smaller executables.
 It also cuts down the number of referenced external libraries and symbols in the program binary.
 
 ### Better Performance
 
-Whole program optimization can remove lots of redundant computation, *i.e. unnecessary laziness and redundant memory operations*.
+Whole program optimization can remove lots of redundant computation, *e.g. unnecessary laziness and redundant memory operations*.
 These program simplifications often make other optimizations possible.
 GRIN represents memory operations and laziness explicitly.
-This allows aggressive memory layout optimizations, *i.e. unboxing, turning heap values to stack/register values.*
+This allows aggressive memory layout optimizations, *e.g. unboxing, turning heap values to stack/register values.*
 GRIN also eliminates indirect function calls which enables LLVM to perform more optimizations.
 
 ### New Platforms
@@ -77,7 +77,7 @@ With this design choice the main platforms can be easily supported, *i.e. x64, A
 ### Analysis Framework
 
 Whole program compilation makes it easy to observe and analyse programs.
-I.e. researchers can use GHC/GRIN to experiment with real-world functional programs.
+GHC/GRIN allows researchers to experiment with real-world functional programs.
 The GHC/GRIN compiler pipeline can serialize both the STG level and the GRIN level intermediate representation (IR) for the whole program.
 With this framework it is easy to convert large Haskell programs to a research IR.
 We also plan to support all GHC primitive operations in the GRIN interpreter and GRIN native code generator.
@@ -90,7 +90,7 @@ The GRIN Project aims to utilize the most recent results of compiler research, e
 
 - [A modern look at GRIN, an optimizing functional language back end](http://nbviewer.jupyter.org/github/Anabra/grin/blob/fd9de6d3b9c7ec5f4aa7d6be41285359a73494e3/papers/stcs-2019/article/tex/main.pdf)  
   Our recent paper gives an overview of GRIN related projects and other whole program compilers.  
-  i.e. *Boquist GRIN, UHC, JHC, LHC, HRC, MLton*
+  e.g. *Boquist GRIN, UHC, JHC, LHC, HRC, MLton*
 
 - [Intel Labs Haskell Research Compiler](http://www.leafpetersen.com/leaf/publications/hs2013/hrc-paper.pdf) / [Measuring the Haskell Gap](http://www.leafpetersen.com/leaf/publications/ifl2013/haskell-gap.pdf)  
   HRC is a research compiler that showed the performance effect of whole program optimization on Haskell.
@@ -114,7 +114,7 @@ The GRIN Project aims to utilize the most recent results of compiler research, e
 - [ISPC: Intel SPMD Program Compiler](https://ispc.github.io/)  
   Single Program Multiple Data ([SPMD](https://en.wikipedia.org/wiki/SPMD)) is the programming model used by the GPUs.
   ISPC implements the SPMD model on CPU SIMD vector instructions like SSE and AVX.
-  It proves that interprocedural data flow vectorisation can be much more performant than loop vectorisation.
+  It shows that interprocedural data flow vectorisation can be much more performant than loop vectorisation.
 
 
 - [FLRC: Automatic SIMD Vectorization for Haskell](http://www.leafpetersen.com/leaf/publications/icfp2013/vectorization-haskell.pdf)  
