@@ -13,7 +13,8 @@ Functional languages are compiled in three stages:
 2. High level optimizer *(functional)*
 3. Low level optimizer *(imperative)*
 
-While [LLVM](http://llvm.org/) handles the last step perfectly, GRIN as a functional optimizer can capture the original language semantics and can perform transformations that are infeasible at LLVM level.
+While [LLVM](http://llvm.org/) handles the last step perfectly,
+[GRIN](https://github.com/grin-compiler/grin) as a functional optimizer can capture the original language semantics and can perform transformations that are infeasible at LLVM level.
 
 
 <img src="GRIN Pipeline.svg" width="50%" >
