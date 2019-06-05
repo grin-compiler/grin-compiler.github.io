@@ -143,7 +143,8 @@ Please support the project on [Patreon](https://www.patreon.com/csaba_hruska).
 Please ask if you have any questions.  
 (i.e. *code, design, research, support, etc.*)
 
-**Email:** *csaba.hruska@gmail.com*
+**Email:** *csaba.hruska@gmail.com*  
+**Twitter:** *[@csaba_hruska](https://twitter.com/csaba_hruska)*
 
 # FAQ
 
