@@ -22,7 +22,8 @@ While [LLVM](http://llvm.org/) handles the last step perfectly,
 Currently the following language frontends are under development:
 
 - **Haskell**  
-  The Haskell language evolves with the Glasgow Haskell Compiler. GHC development is usually focused on language features and high level optimization while the machine code generator gets less attention.
+  The Haskell language evolves with the Glasgow Haskell Compiler.
+  GHC development is usually focused on language features and high level optimization while the machine code generator gets less attention.
   [GHC/GRIN](https://github.com/grin-compiler/ghc-grin) is a combination of GHC's Haskell language frontend and the GRIN optimizer.
   It is work in progress, check its [current status](https://github.com/grin-compiler/ghc-grin#status).
 - **Idris**  
@@ -45,28 +46,30 @@ Good tooling is essential for industrial software development.
 In order to get anywhere near feature parity with the tools of mainstream programming languages, we need to inspect the whole program at the same time.
 This can help with all stages of development: immediate feedback while typing, visual debugging and profiling.
 With such runtime tooling it would be possible to *show memory structures, debug laziness and visualize unevaluated expressions.*  
-Having access to the whole program could improve the code editor experience also. It would be possible to highlight optimization effects on source code,
-*i.e. dead code/data, linear variable usage, laziness, strictness, tail call, unboxing, stack/heap allocation.*  
+Having access to the whole program could improve the code editor experience also.
+It would be possible to highlight optimization effects on source code, *i.e. dead code/data, linear variable usage, laziness, strictness, tail call, unboxing, stack/heap allocation.*  
 It seems feasible to implement these cool features using Language Server Protocol and GRIN.
 
 ### Smaller Executables
 
 Whole program analysis helps the compiler to remove dead code and dead data fields more effectively.
-E.g. it can remove the unused type class instances. This results much smaller executables.
+E.g. it can remove the unused type class instances.
+This results much smaller executables.
 It also cuts down the number of referenced external libraries and symbols in the program binary.
 
 ### Better Performance
 
-Whole program optimization can remove lots of redundant computation,
-*i.e. unnecessary laziness and redundant memory operations*.
+Whole program optimization can remove lots of redundant computation, *i.e. unnecessary laziness and redundant memory operations*.
 These program simplifications often make other optimizations possible.
-GRIN represents memory operations and laziness explicitly. This allows aggressive memory layout optimizations, *i.e. unboxing, turning heap values to stack/register values.*
+GRIN represents memory operations and laziness explicitly.
+This allows aggressive memory layout optimizations, *i.e. unboxing, turning heap values to stack/register values.*
 GRIN also eliminates indirect function calls which enables LLVM to perform more optimizations.
 
 
 ### New Platforms
 
-GRIN uses LLVM for machine code generation. LLVM provides robust tooling and support for all mainstream platforms.
+GRIN uses LLVM for machine code generation.
+LLVM provides robust tooling and support for all mainstream platforms.
 With this design choice the main platforms can be easily supported, *i.e. x64, ARM, WebAssembly* covering desktop, mobile and web.
 
 
@@ -96,7 +99,8 @@ The GRIN Project aims to utilize the most recent results of compiler research, e
   HRC is a research compiler that showed the performance effect of whole program optimization on Haskell. 
 
 - [MLton](http://mlton.org/)  
-  MLton is the leading industrial strength whole program compiler for SML. It showcased that whole program compilation is feasible with low compile times.
+  MLton is the leading industrial strength whole program compiler for SML.
+  It showcased that whole program compilation is feasible with low compile times.
 
 *Program analysis*
 
@@ -105,7 +109,8 @@ The GRIN Project aims to utilize the most recent results of compiler research, e
   It is used to implement *points-to, control flow*  and other analyses efficiently.
 
 - [P4F: Pushdown Control-Flow Analysis for Free](https://arxiv.org/pdf/1507.03137.pdf)  
-  P4F is an advanced control flow analysis. It can boost the optimizer efficiency with providing sophisticated control flow information.
+  P4F is an advanced control flow analysis.
+  It can boost the optimizer efficiency with providing sophisticated control flow information.
 
 *Vectorisation*
 
@@ -148,8 +153,7 @@ Please ask if you have any questions.
 # FAQ
 
 **What is the difference between GHC and GRIN?**  
-GHC is an incremental compiler, therefore it cannot perform whole-program optimization,
-i.e. optimization across compilation units (with some exceptions at the highest level, e.g. rewrite rules).
+GHC is an incremental compiler, therefore it cannot perform whole-program optimization, i.e. optimization across compilation units (with some exceptions at the highest level, e.g. rewrite rules).
 GRIN is a whole-program optimizer, which goes all the way down to the level of primitive memory access operations.
 
 **Why don't you improve GHC instead of GRIN?**  
@@ -159,4 +163,3 @@ Instead, we try to reuse as many parts as possible, e.g. the GHC frontend.
 **Can you reuse the GHC runtime for GHC/GRIN?**  
 No, because the GHC runtime is built for the STG memory model.
 In contrast, there’s no uniform memory representation in GRIN.
-
