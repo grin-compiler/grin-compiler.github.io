@@ -10,8 +10,8 @@ GRIN could significantly improve the tooling, performance and size of functional
 
 Functional languages are compiled in three stages:
 1. Language frontend
-2. High level optimizer *(functional)*
-3. Low level optimizer *(imperative)*
+2. High-level optimizer *(functional)*
+3. Low-level optimizer *(imperative)*
 
 While [LLVM](http://llvm.org/) handles the last step perfectly,
 [GRIN](https://github.com/grin-compiler/grin) as a functional optimizer can capture the original language semantics and can perform transformations that are infeasible at LLVM level.
@@ -22,7 +22,7 @@ Currently the following language frontends are under development:
 
 - **Haskell**  
   The Haskell language evolves with the Glasgow Haskell Compiler.
-  GHC development is usually focused on language features and high level optimization while the machine code generator gets less attention.
+  GHC development is usually focused on language features and high-level optimization while the machine code generator gets less attention.
   [GHC/GRIN](https://github.com/grin-compiler/ghc-grin) is a combination of GHC's Haskell language frontend and the GRIN optimizer.
   It is work in progress, check its [current status](https://github.com/grin-compiler/ghc-grin#status).
 - **Idris**  
