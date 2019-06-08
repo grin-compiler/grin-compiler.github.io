@@ -163,4 +163,4 @@ In contrast, there’s no uniform memory representation in GRIN.
 
 <h1 align="center">Patreon Sponsors</h1>
 
-- Sam Griffin
+<p align="center">Sam Griffin</p>
