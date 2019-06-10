@@ -161,7 +161,7 @@ Instead, we try to reuse as many parts as possible, e.g. the GHC frontend.
 No, because the GHC runtime is built for the STG memory model.
 In contrast, there’s no uniform memory representation in GRIN.
 
-<h1 align="center">Patreon Sponsors</h1>
+<h1 id="patreon-sponsors" align="center">Patreon Sponsors</h1>
 
 <p align="center">
   Sam Griffin
