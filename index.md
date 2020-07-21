@@ -163,8 +163,38 @@ In contrast, there’s no uniform memory representation in GRIN.
 
 <h1 id="patreon-sponsors" align="center">Patreon Sponsors</h1>
 
-<p align="center">
+<p class="center" style="font-size: 1.2em;">
   Sam Griffin
   <br>
   Timothy Klim
 </p>
+
+<div class="center">
+  <a href="http://holmusk.com/">
+    <img
+      class="logo-big"
+      src="assets/holmusk/Holmusk_masterlogo_blue.svg"
+      alt="Holmusk logo" />
+  </a>
+</div>
+
+<style>
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .logo-big {
+    width: 30%;
+  }
+
+  .logo-medium {
+    width: 22%;
+  }
+
+  .logo-small {
+    width: 15%;
+  }
+</style>
