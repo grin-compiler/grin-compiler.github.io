@@ -138,7 +138,7 @@ Please support the project on [Patreon](https://www.patreon.com/csaba_hruska).
 
 # Ask Us
 
-[![Gitter chat](https://badges.gitter.im/grin-tech/grin.png)](https://gitter.im/Grin-Development/Lobby)
+[![Gitter chat](https://badges.gitter.im/grin-compiler/grin.png)](https://gitter.im/Grin-Development/Lobby)
 
 Please ask if you have any questions.  
 (i.e. *code, design, research, support, etc.*)

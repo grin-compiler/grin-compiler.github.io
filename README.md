@@ -1,6 +1,6 @@
 # GRIN Compiler Website
 
-[![Build Status](https://travis-ci.org/grin-tech/grin-tech.github.io.svg?branch=master)](https://travis-ci.org/grin-tech/grin-tech.github.io)
+[![Build Status](https://travis-ci.org/grin-compiler/grin-compiler.github.io.svg?branch=master)](https://travis-ci.org/grin-compiler/grin-compiler.github.io)
 
 I've just published my first GitHub Pages site!
 

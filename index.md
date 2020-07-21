@@ -139,7 +139,7 @@ If you'd like to join them, please consider become a backer or sponsor on [Patre
 
 # Ask Us
 
-[![Gitter chat](https://badges.gitter.im/grin-tech/grin.png)](https://gitter.im/Grin-Development/Lobby)
+[![Gitter chat](https://badges.gitter.im/grin-compiler/grin.png)](https://gitter.im/Grin-Development/Lobby)
 
 Please ask if you have any questions.  
 (i.e. *code, design, research, support, etc.*)
